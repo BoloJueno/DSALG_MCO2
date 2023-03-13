@@ -20,7 +20,20 @@ queue* createQueue(int n) {
 }
 
 int queueEmpty(queue *q) {
-	// Your code here
+
+	// // if (!(q -> pHead) && !(q -> pTail)) {
+	// // if (q -> pHead == 0 && q -> pHead == 0) {
+	// 	return 1;
+	// } else {
+	// 	return 0;
+	// }
+
+	if (q -> pHead || q -> pTail) {
+		return 0;
+	} else {
+		return 1;
+	}
+	
 }
 
 int queueFull(queue *q) {
