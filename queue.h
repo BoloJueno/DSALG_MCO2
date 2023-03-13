@@ -44,7 +44,17 @@ int queueFull(queue *q) {
 }
 
 void enqueue(queue **q, char *data) {
-	// Your code here
+	
+	if (!((*q)->pHead)) {
+		(*q)->pHead->data = data;
+		(*q)->pHead->pLink = (*q)->pHead->pLink + 1;
+	}
+
+	(*q)->pTail->data = data;
+	(*q)->pTail->pLink = (*q)->pTail->pLink + 1;
+
+	(*q)->nCount++;
+
 }
 
 char* dequeue(queue **q) {
