@@ -58,7 +58,10 @@ void enqueue(queue **q, char *data) {
 }
 
 char* dequeue(queue **q) {
-    // Your code here
+    (*q)->pHead->data = (*q)->pHead->data + 1;
+	(*q)->pHead->pLink = (*q)->pHead->pLink + 1;
+
+	(*q)->nCount--;
 }
 
 void displayQueue(queue *q) {
