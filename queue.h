@@ -14,7 +14,7 @@ typedef struct {
 queue* createQueue(int n) {
 	queue *createdQueue;
 
-	createdQueue -> n = n;
+	createdQueue->n = n;
 
 	return createdQueue;
 }
@@ -28,7 +28,7 @@ int queueEmpty(queue *q) {
 	// 	return 0;
 	// }
 
-	if (q -> pHead || q -> pTail) {
+	if (q->pHead || q->pTail) {
 		return 0;
 	} else {
 		return 1;
