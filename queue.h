@@ -37,7 +37,9 @@ int queueEmpty(queue *q) {
 }
 
 int queueFull(queue *q) {
-	// Your code here
+	
+	return q->nCount == q->n - 1;
+
 }
 
 void enqueue(queue **q, char *data) {
