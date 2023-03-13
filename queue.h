@@ -12,7 +12,11 @@ typedef struct {
 } queue;
 
 queue* createQueue(int n) {
-	// Your code here
+	queue *createdQueue;
+
+	createdQueue -> n = n;
+
+	return createdQueue;
 }
 
 int queueEmpty(queue *q) {
