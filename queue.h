@@ -15,6 +15,7 @@ queue* createQueue(int n) {
 	queue *q;
 
 	q->n = n;
+	q->nCount = 0;
 
 	return q;
 }
