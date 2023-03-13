@@ -2,6 +2,7 @@
 YOU ARE NOT ALLOWED TO MODIFY THE STRUCT AND THE FUNCTION PROTOTYPES
 *******************************************************************/
 
+#include <stdio.h>
 #include "node.h"
 
 typedef struct {
@@ -65,7 +66,24 @@ char* dequeue(queue **q) {
 }
 
 void displayQueue(queue *q) {
-	// Your code here
+	int i;
+	char c;
+	sNode* temp;
+
+	if (q->pHead == q->pTail)
+	{
+		printf ("Queue is empty\n");
+	}
+	else
+	{
+		temp = q->pHead;
+		for (i = 0; i < q->nCount; i++)
+		{
+			printf ("%c\n", temp->data);
+			temp = temp->pLink;
+		}
+	}
+
 }
 
 char* head(queue *q) {
