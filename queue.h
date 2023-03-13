@@ -67,7 +67,6 @@ char* dequeue(queue **q) {
 
 void displayQueue(queue *q) {
 	int i;
-	char c;
 	sNode* temp;
 
 	if (q->pHead == q->pTail)
@@ -87,11 +86,11 @@ void displayQueue(queue *q) {
 }
 
 char* head(queue *q) {
-	// Your code here
+	return q->pHead->data;
 }
 
 char* tail(queue *q) {
-	// Your code here
+	return q->pTail->data
 }
 
 
