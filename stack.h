@@ -3,6 +3,7 @@ YOU ARE NOT ALLOWED TO MODIFY THE STRUCT AND THE FUNCTION PROTOTYPES
 *******************************************************************/
 
 #include "node.h"
+#include <stdio.h>
 
 typedef struct {
 	int n;
@@ -31,9 +32,28 @@ char* pop(stack **s) {
 }
 
 void displayStack(stack *s) {
-	// Your code here
+
+	int i;
+	sNode* temp;
+
+	if (s->nCount == 0)
+	{
+		printf ("Stack is empty\n");
+	}
+	else
+	{
+		temp = s->pTop;
+		printf ("Stack: ");
+
+		for (i = 0; i < s->nCount; i++)
+		{
+			printf ("%c ", temp->data);
+			temp = temp->pLink;
+		}
+		printf ("\n");
+	}
 }
 
 char* top(stack *s) {
-	// Your code here
+	return s->pTop->data;
 }
