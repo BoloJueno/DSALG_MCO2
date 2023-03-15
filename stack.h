@@ -11,20 +11,35 @@ typedef struct {
 	sNode *pTop;
 } stack;
 
-stack* createStack(int n) {
-	// Your code here
+stack* createStack(int n) 
+{
+	stack *s;
+
+	s.n = n;
+	s.nCount = 0;
+
+	return s;
 }
 
-int stackEmpty(stack *s) {
-	// Your code here
+int stackEmpty(stack *s) 
+{
+	if(pTop == 0)
+		return 1;
+	else
+		return 0;
 }
 
-int stackFull(stack *s) {
-	// Your code here
+int stackFull(stack *s) 
+{
+	if(pTop == n)
+		return 1;
+	else
+		return 0;
 }
-
 void push(stack **s, char *data) {
-	// Your code here
+	*s.data = data;
+	*s.nCount.pLink++;
+	*s.nCount++;
 }
 
 char* pop(stack **s) {
