@@ -62,7 +62,7 @@ char* dequeue(queue **q) {
 
 	char *temp = (*q)->pHead->data;
 
-	if (queueEmpty(*q) == 1) {//underflow checker
+	if (queueEmpty(*q) == 0) {//underflow checker
 		(*q)->pHead->data = (*q)->pHead->data + 1;
 		(*q)->pHead->pLink = (*q)->pHead->pLink + 1;
 
