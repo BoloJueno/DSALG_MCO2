@@ -54,7 +54,7 @@ char* pop(stack **s)
 {
 	char *temp = (*s)->pTop->data;
 
-	if ((*s)->nCount == 0) {//underflow checker
+	if ((*s)->nCount > 0) {//underflow checker
 		(*s)->pTop->pLink--;
 		(*s)->nCount--;
 	} else {
