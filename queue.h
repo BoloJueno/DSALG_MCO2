@@ -32,7 +32,11 @@ int queueEmpty(queue *q) {
 
 int queueFull(queue *q) {
 	
-	return q->nCount == q->n - 1;
+	if (q->nCount == q->n - 1) {
+		return 1;
+	} else {
+		return 0;
+	}
 
 }
 
