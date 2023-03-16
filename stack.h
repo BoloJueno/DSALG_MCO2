@@ -2,9 +2,6 @@
 YOU ARE NOT ALLOWED TO MODIFY THE STRUCT AND THE FUNCTION PROTOTYPES
 *******************************************************************/
 
-#include "node.h"
-#include <stdio.h>
-
 typedef struct {
 	int n;
 	int nCount;
@@ -13,40 +10,65 @@ typedef struct {
 
 stack* createStack(int n) 
 {
-	stack *s;
+	stack temp;
 
-	s.n = n;
-	s.nCount = 0;
+	temp.n = n;
+	temp.nCount = 0;
+
+	stack *s = &temp;
 
 	return s;
 }
 
 int stackEmpty(stack *s) 
 {
-	if(pTop == 0)
+	if(s->pTop == NULL) {
 		return 1;
-	else
+	} else {
 		return 0;
+	}
 }
 
 int stackFull(stack *s) 
 {
-	if(pTop == n)
+	if(s->nCount == s->n) {
 		return 1;
-	else
+	} else {
 		return 0;
+	}
 }
+
 void push(stack **s, char *data) 
 {
-	*s.data = data;
-	*s.nCount.pLink++;
-	*s.nCount++;
+	// (*s)->pTop++;
+	// printf("world\n");
+	sNode *temp = (*s)->pTop;
+	if ((*s)->nCount < (*s)->n) {//overflow checker
+		printf("%p", (*temp).data);
+		printf("world\n");
+		// strcpy((*temp)->data, data);
+		printf("world\n");
+		(*s)->pTop->pLink++;
+		(*s)->nCount++;
+	} else {
+		printf("Stack overflow encountered\n");
+	}
+	
 }
 
 char* pop(stack **s) 
 {
-	*s.nCount.pLink--;
-	*s.nCount--;
+	char *temp = (*s)->pTop->data;
+
+	if ((*s)->nCount == 0) {//underflow checker
+		(*s)->pTop->pLink--;
+		(*s)->nCount--;
+	} else {
+		printf("Stack underflow encountered\n");
+	}
+
+	return temp;
+
 }
 
 void displayStack(stack *s) {
@@ -65,7 +87,7 @@ void displayStack(stack *s) {
 
 		for (i = 0; i < s->nCount; i++)
 		{
-			printf ("%c ", temp->data);
+			printf ("%c ", *(temp->data));
 			temp = temp->pLink;
 		}
 		printf ("\n");

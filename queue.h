@@ -2,9 +2,6 @@
 YOU ARE NOT ALLOWED TO MODIFY THE STRUCT AND THE FUNCTION PROTOTYPES
 *******************************************************************/
 
-#include <stdio.h>
-#include "node.h"
-
 typedef struct {
 	int n;
 	int nCount;
@@ -13,63 +10,77 @@ typedef struct {
 } queue;
 
 queue* createQueue(int n) {
-	queue *q;
+	queue temp;
 
-	q->n = n;
-	q->nCount = 0;
+	temp.n = n;
+	temp.nCount = 0;
+
+	queue *q = &temp;
 
 	return q;
 }
 
 int queueEmpty(queue *q) {
 
-	// // if (!(q -> pHead) && !(q -> pTail)) {
-	// // if (q -> pHead == 0 && q -> pHead == 0) {
-	// 	return 1;
-	// } else {
-	// 	return 0;
-	// }
-
-	if (q->pHead || q->pTail) {
-		return 0;
-	} else {
+	if (!(q->pHead && q->pTail)) {
 		return 1;
+	} else {
+		return 0;
 	}
 	
 }
 
 int queueFull(queue *q) {
 	
-	return q->nCount == q->n - 1;
+	if (q->nCount == q->n - 1) {
+		return 1;
+	} else {
+		return 0;
+	}
 
 }
 
 void enqueue(queue **q, char *data) {
 	
-	if (!((*q)->pHead)) {
-		(*q)->pHead->data = data;
-		(*q)->pHead->pLink = (*q)->pHead->pLink + 1;
+	if (queueFull(*q) == 0) {//checks overflow
+		if (queueEmpty(*q) == 1) {//if queue is empty
+			strcpy((*q)->pHead->data, data);
+			// printf("world\n");
+			(*q)->pHead->pLink = (*q)->pHead->pLink + 1;
+		} else {
+			(*q)->pTail->data = data;
+			(*q)->pTail->pLink = (*q)->pTail->pLink + 1;
+
+			(*q)->nCount++;
+		}
+	} else {
+		printf("Queue overflow encountered\n");
 	}
-
-	(*q)->pTail->data = data;
-	(*q)->pTail->pLink = (*q)->pTail->pLink + 1;
-
-	(*q)->nCount++;
 
 }
 
 char* dequeue(queue **q) {
-    (*q)->pHead->data = (*q)->pHead->data + 1;
-	(*q)->pHead->pLink = (*q)->pHead->pLink + 1;
 
-	(*q)->nCount--;
+	char *temp = (*q)->pHead->data;
+
+	if (queueEmpty(*q) == 0) {//underflow checker
+		(*q)->pHead->data = (*q)->pHead->data + 1;
+		(*q)->pHead->pLink = (*q)->pHead->pLink + 1;
+
+		(*q)->nCount--;
+	} else {
+		printf("Queue underflow encountered\n");
+	}
+
+	return temp;
+    
 }
 
 void displayQueue(queue *q) {
 	int i;
 	sNode* temp;
 
-	if (q->pHead == q->pTail)
+	if (q->nCount == 0)
 	{
 		printf ("Queue is empty\n");
 	}
@@ -78,7 +89,7 @@ void displayQueue(queue *q) {
 		temp = q->pHead;
 		for (i = 0; i < q->nCount; i++)
 		{
-			printf ("%c\n", temp->data);
+			printf ("%c\n", *(temp->data));
 			temp = temp->pLink;
 		}
 	}
@@ -90,7 +101,7 @@ char* head(queue *q) {
 }
 
 char* tail(queue *q) {
-	return q->pTail->data
+	return q->pTail->data;
 }
 
 
