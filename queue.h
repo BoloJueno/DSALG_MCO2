@@ -75,7 +75,7 @@ void displayQueue(queue *q) {
 	int i;
 	sNode* temp;
 
-	if (q->pHead == q->pTail)
+	if (q->nCount == 0)
 	{
 		printf ("Queue is empty\n");
 	}
