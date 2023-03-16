@@ -32,11 +32,13 @@ int stackEmpty(stack *s)
 
 int stackFull(stack *s) 
 {
-	if(pTop == n)
+	if(s->nCount == s->n) {
 		return 1;
-	else
+	} else {
 		return 0;
+	}
 }
+
 void push(stack **s, char *data) 
 {
 	*s.data = data;
