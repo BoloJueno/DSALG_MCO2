@@ -2,6 +2,7 @@
 YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 *****************************************************/
 
+#include <stdio.h>
 #include "node.h"
 #include "queue.h"
 #include "stack.h"
@@ -9,7 +10,9 @@ YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 
 int main() {
 	
-	// Your code here
+	printf("helo");
+	displayQueue(createQueue(10));
+	printf("helo");
 	
 	return 0;
 }
