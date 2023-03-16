@@ -35,14 +35,17 @@ int stackFull(stack *s)
 	else
 		return 0;
 }
-void push(stack **s, char *data) {
+void push(stack **s, char *data) 
+{
 	*s.data = data;
 	*s.nCount.pLink++;
 	*s.nCount++;
 }
 
-char* pop(stack **s) {
-	// Your code here
+char* pop(stack **s) 
+{
+	*s.nCount.pLink--;
+	*s.nCount--;
 }
 
 void displayStack(stack *s) {
