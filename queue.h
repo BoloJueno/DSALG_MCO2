@@ -63,10 +63,16 @@ void enqueue(queue **q, char *data) {
 }
 
 char* dequeue(queue **q) {
-    (*q)->pHead->data = (*q)->pHead->data + 1;
-	(*q)->pHead->pLink = (*q)->pHead->pLink + 1;
 
-	(*q)->nCount--;
+	if (queueEmpty(*q) == 1) {//underflow checker
+		(*q)->pHead->data = (*q)->pHead->data + 1;
+		(*q)->pHead->pLink = (*q)->pHead->pLink + 1;
+
+		(*q)->nCount--;
+	} else {
+		printf("Queue underflow encountered\n");
+	}
+    
 }
 
 void displayQueue(queue *q) {
