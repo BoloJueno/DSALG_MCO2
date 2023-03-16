@@ -10,9 +10,10 @@ YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 
 int main() {
 	
-	printf("helo");
-	displayQueue(createQueue(10));
-	printf("helo");
+	queue q = *(createQueue(10));
+
+	printf("helo\n");
+	printf("%d", queueEmpty(&q));
 	
 	return 0;
 }
