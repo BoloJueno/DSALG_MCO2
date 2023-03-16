@@ -64,6 +64,8 @@ void enqueue(queue **q, char *data) {
 
 char* dequeue(queue **q) {
 
+	char *temp = (*q)->pHead->data;
+
 	if (queueEmpty(*q) == 1) {//underflow checker
 		(*q)->pHead->data = (*q)->pHead->data + 1;
 		(*q)->pHead->pLink = (*q)->pHead->pLink + 1;
@@ -72,6 +74,8 @@ char* dequeue(queue **q) {
 	} else {
 		printf("Queue underflow encountered\n");
 	}
+
+	return temp;
     
 }
 
