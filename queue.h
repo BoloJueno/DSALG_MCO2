@@ -12,10 +12,12 @@ typedef struct {
 } queue;
 
 queue* createQueue(int n) {
-	queue* q;
+	queue temp;
 
-	q->n = n;
-	q->nCount = 0;
+	temp.n = n;
+	temp.nCount = 0;
+
+	queue *q = &temp;
 
 	return q;
 }
