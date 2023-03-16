@@ -2,7 +2,6 @@
 YOU ARE NOT ALLOWED TO MODIFY THE STRUCT AND THE FUNCTION PROTOTYPES
 *******************************************************************/
 
-#include "node.h"
 #include <stdio.h>
 
 typedef struct {
