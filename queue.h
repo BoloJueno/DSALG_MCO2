@@ -22,7 +22,7 @@ queue* createQueue(int n) {
 
 int queueEmpty(queue *q) {
 
-	if (q->pHead || q->pTail) {
+	if (!(q->pHead && q->pTail)) {
 		return 1;
 	} else {
 		return 0;
