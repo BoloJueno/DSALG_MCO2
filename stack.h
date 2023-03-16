@@ -44,7 +44,7 @@ void push(stack **s, char *data)
 	// printf("world\n");
 	sNode *temp = (*s)->pTop;
 	if ((*s)->nCount < (*s)->n) {//overflow checker
-		printf("%p", &temp->data);
+		printf("%p", (*temp).data);
 		printf("world\n");
 		// strcpy((*temp)->data, data);
 		printf("world\n");
