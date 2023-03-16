@@ -41,15 +41,24 @@ int stackFull(stack *s)
 
 void push(stack **s, char *data) 
 {
-	(*s)->pTop->data = data;
-	(*s)->pTop->pLink++;
-	(*s)->nCount++;
+	if ((*s)->nCount == (*s)->n) {//overflow checker
+		(*s)->pTop->data = data;
+		(*s)->pTop->pLink++;
+		(*s)->nCount++;
+	} else {
+		printf("Stack overflow encountered\n");
+	}
+	
 }
 
 char* pop(stack **s) 
 {
-	(*s)->pTop->pLink--;
-	(*s)->nCount--;
+	if ((*s)->nCount == 0) {//underflow checker
+		(*s)->pTop->pLink--;
+		(*s)->nCount--;
+	} else {
+		printf("Stack underflow encountered\n");
+	}
 }
 
 void displayStack(stack *s) {
