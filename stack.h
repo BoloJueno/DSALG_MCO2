@@ -68,7 +68,7 @@ void displayStack(stack *s) {
 
 		for (i = 0; i < s->nCount; i++)
 		{
-			printf ("%c ", temp->data);
+			printf ("%c ", *(temp->data));
 			temp = temp->pLink;
 		}
 		printf ("\n");
