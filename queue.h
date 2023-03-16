@@ -3,7 +3,6 @@ YOU ARE NOT ALLOWED TO MODIFY THE STRUCT AND THE FUNCTION PROTOTYPES
 *******************************************************************/
 
 #include <stdio.h>
-#include "node.h"
 
 typedef struct {
 	int n;
@@ -13,7 +12,7 @@ typedef struct {
 } queue;
 
 queue* createQueue(int n) {
-	queue *q;
+	queue* q;
 
 	q->n = n;
 	q->nCount = 0;
