@@ -41,9 +41,9 @@ int stackFull(stack *s)
 
 void push(stack **s, char *data) 
 {
-	*s.data = data;
-	*s.nCount.pLink++;
-	*s.nCount++;
+	(*s)->pTop->data = data;
+	(*s)->pTop->pLink++;
+	(*s)->nCount++;
 }
 
 char* pop(stack **s) 
