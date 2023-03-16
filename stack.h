@@ -53,12 +53,17 @@ void push(stack **s, char *data)
 
 char* pop(stack **s) 
 {
+	char *temp = (*s)->pTop->data;
+
 	if ((*s)->nCount == 0) {//underflow checker
 		(*s)->pTop->pLink--;
 		(*s)->nCount--;
 	} else {
 		printf("Stack underflow encountered\n");
 	}
+
+	return temp;
+
 }
 
 void displayStack(stack *s) {
