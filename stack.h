@@ -48,8 +48,8 @@ void push(stack **s, char *data)
 
 char* pop(stack **s) 
 {
-	*s.nCount.pLink--;
-	*s.nCount--;
+	(*s)->pTop->pLink--;
+	(*s)->nCount--;
 }
 
 void displayStack(stack *s) {
