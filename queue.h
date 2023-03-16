@@ -46,15 +46,19 @@ int queueFull(queue *q) {
 
 void enqueue(queue **q, char *data) {
 	
-	if (!((*q)->pHead)) {
-		(*q)->pHead->data = data;
-		(*q)->pHead->pLink = (*q)->pHead->pLink + 1;
+	if (queueFull(*q) == 1) {//checks overflow
+		if ((*q)->nCount == 0) {//if queue is empty
+			(*q)->pHead->data = data;
+			(*q)->pHead->pLink = (*q)->pHead->pLink + 1;
+		} else {
+			(*q)->pTail->data = data;
+			(*q)->pTail->pLink = (*q)->pTail->pLink + 1;
+
+			(*q)->nCount++;
+		}
+	} else {
+		printf("Queue overflow encountered\n");
 	}
-
-	(*q)->pTail->data = data;
-	(*q)->pTail->pLink = (*q)->pTail->pLink + 1;
-
-	(*q)->nCount++;
 
 }
 
