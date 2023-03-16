@@ -23,7 +23,6 @@ stack* createStack(int n)
 
 int stackEmpty(stack *s) 
 {
-	if(pTop == 0)
 	if(s->pTop == NULL) {
 		return 1;
 	} else {
