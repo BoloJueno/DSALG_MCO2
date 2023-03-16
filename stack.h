@@ -40,8 +40,12 @@ int stackFull(stack *s)
 
 void push(stack **s, char *data) 
 {
-	if ((*s)->nCount == (*s)->n) {//overflow checker
-		(*s)->pTop->data = data;
+	sNode *temp = (*s)->pTop;
+	if ((*s)->nCount < (*s)->n) {//overflow checker
+		printf("%p", temp->data);
+		printf("world\n");
+		strcpy((*s)->pTop->data, data);
+		printf("world\n");
 		(*s)->pTop->pLink++;
 		(*s)->nCount++;
 	} else {
@@ -54,7 +58,7 @@ char* pop(stack **s)
 {
 	char *temp = (*s)->pTop->data;
 
-	if ((*s)->nCount > 0) {//underflow checker
+	if ((*s)->nCount == 0) {//underflow checker
 		(*s)->pTop->pLink--;
 		(*s)->nCount--;
 	} else {
