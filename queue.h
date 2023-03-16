@@ -88,7 +88,7 @@ void displayQueue(queue *q) {
 		temp = q->pHead;
 		for (i = 0; i < q->nCount; i++)
 		{
-			printf ("%c\n", temp->data);
+			printf ("%c\n", *(temp->data));
 			temp = temp->pLink;
 		}
 	}
