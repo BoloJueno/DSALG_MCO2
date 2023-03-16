@@ -42,9 +42,10 @@ int queueFull(queue *q) {
 
 void enqueue(queue **q, char *data) {
 	
-	if (queueFull(*q) == 1) {//checks overflow
-		if ((*q)->nCount == 0) {//if queue is empty
-			(*q)->pHead->data = data;
+	if (queueFull(*q) == 0) {//checks overflow
+		if (queueEmpty(*q) == 1) {//if queue is empty
+			strcpy((*q)->pHead->data, data);
+			printf("world\n");
 			(*q)->pHead->pLink = (*q)->pHead->pLink + 1;
 		} else {
 			(*q)->pTail->data = data;
