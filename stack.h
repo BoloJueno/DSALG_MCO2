@@ -15,8 +15,8 @@ stack* createStack(int n)
 {
 	stack *s;
 
-	s.n = n;
-	s.nCount = 0;
+	s->n = n;
+	s->nCount = 0;
 
 	return s;
 }
