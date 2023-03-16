@@ -2,8 +2,6 @@
 YOU ARE NOT ALLOWED TO MODIFY THE STRUCT AND THE FUNCTION PROTOTYPES
 *******************************************************************/
 
-#include <stdio.h>
-
 typedef struct {
 	int n;
 	int nCount;
@@ -12,10 +10,12 @@ typedef struct {
 
 stack* createStack(int n) 
 {
-	stack *s;
+	stack temp;
 
-	s->n = n;
-	s->nCount = 0;
+	temp.n = n;
+	temp.nCount = 0;
+
+	stack *s = &temp;
 
 	return s;
 }
