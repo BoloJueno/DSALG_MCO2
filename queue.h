@@ -100,7 +100,7 @@ char* head(queue *q) {
 }
 
 char* tail(queue *q) {
-	return q->pTail->data
+	return q->pTail->data;
 }
 
 
