@@ -18,7 +18,7 @@ int main() {
 	// // queue* qPtr = &q;
 	// // queue** qPtrPtr = &qPtr;
 
-	stack s = *(createStack(10));
+	stack s = *(createStack(1));
 	stack* sPtr = &s;
 	stack** sPtrPtr = &sPtr;
 
@@ -30,9 +30,11 @@ int main() {
 
 	// printf("%p\n", s.pTop);
 
-	printf("%d\n", stackEmpty(&s));
+	printf("%d\n", stackFull(&s));
 	push(sPtrPtr, string);
-	printf("%d\n", stackEmpty(&s));
+	printf("%d\n", stackFull(&s));
+	pop(sPtrPtr);
+	printf("%d\n", stackFull(&s));
 	printf("helo\n");
 	
 	return 0;
