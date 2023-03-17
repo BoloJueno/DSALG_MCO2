@@ -73,7 +73,7 @@ void displayStack(stack *s) {
 	int i;
 	sNode* temp;
 
-	if (s->nCount == 0)
+	if (stackEmpty(s))
 	{
 		printf ("Stack is empty\n");
 	}
@@ -84,7 +84,7 @@ void displayStack(stack *s) {
 
 		for (i = 0; i < s->nCount; i++)
 		{
-			printf ("%c ", *(temp->data));
+			printf ("%s ", temp->data);
 			temp = temp->pLink;
 		}
 		printf ("\n");
