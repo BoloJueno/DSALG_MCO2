@@ -12,15 +12,15 @@ YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 
 int main() {
 
-	// char string[10] = "hi";
+	char string[10] = "hi";
 	
 	// // queue q = *(createQueue(10));
 	// // queue* qPtr = &q;
 	// // queue** qPtrPtr = &qPtr;
 
 	stack s = *(createStack(10));
-	// stack* sPtr = &s;
-	// stack** sPtrPtr = &sPtr;
+	stack* sPtr = &s;
+	stack** sPtrPtr = &sPtr;
 
 	// printf("helo\n");
 	// // printf("%d", queueFull(&q));
@@ -28,12 +28,12 @@ int main() {
 	// // printf("helo\n");
 	// // printf("%d", queueEmpty(&q));
 
-	printf("%p\n", s.pTop);
+	// printf("%p\n", s.pTop);
 
-	// printf("%d\n", stackEmpty(&s));
-	// push(sPtrPtr, string);
-	// printf("%d\n", stackEmpty(&s));
-	// printf("helo\n");
+	printf("%d\n", stackEmpty(&s));
+	push(sPtrPtr, string);
+	printf("%d\n", stackEmpty(&s));
+	printf("helo\n");
 	
 	return 0;
 }
