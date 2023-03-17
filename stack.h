@@ -10,19 +10,18 @@ typedef struct {
 
 stack* createStack(int n) 
 {
-	stack temp;
+	stack *s = (stack *) malloc(sizeof(stack));
 
-	temp.n = n;
-	temp.nCount = 0;
-
-	stack *s = &temp;
+	s->n = n;
+	s->nCount = 0;
+	s->pTop = NULL;
 
 	return s;
 }
 
 int stackEmpty(stack *s) 
 {
-	if(s->pTop == NULL) {
+	if(!(s->pTop)) {
 		return 1;
 	} else {
 		return 0;
@@ -40,34 +39,40 @@ int stackFull(stack *s)
 
 void push(stack **s, char *data) 
 {
-	// (*s)->pTop++;
-	// printf("world\n");
-	sNode *temp = (*s)->pTop;
-	if ((*s)->nCount < (*s)->n) {//overflow checker
-		printf("%p", (*temp).data);
-		printf("world\n");
-		// strcpy((*temp)->data, data);
-		printf("world\n");
-		(*s)->pTop->pLink++;
-		(*s)->nCount++;
-	} else {
-		printf("Stack overflow encountered\n");
-	}
+
+	if (!stackFull(*s)) {//overflow checker
+			sNode *temp = (sNode *) malloc(sizeof(sNode));
+			temp->data = data;
+			temp->pLink = (*s)->pTop;
+			(*s)->pTop = temp;
+			(*s)->nCount++;
+		} else {
+			printf("Stack overflow encountered\n");
+		}
 	
 }
 
 char* pop(stack **s) 
 {
-	char *temp = (*s)->pTop->data;
+	// sNode *temp = (*s)->pTop;
+	// char *tempString = temp->data;
 
-	if ((*s)->nCount == 0) {//underflow checker
-		(*s)->pTop->pLink--;
+	if (!stackEmpty(*s)) {//underflow checker
+
+		sNode *temp = (*s)->pTop;
+		char *tempString = temp->data;
+		(*s)->pTop = temp->pLink;
 		(*s)->nCount--;
+
+		return tempString;
+
 	} else {
 		printf("Stack underflow encountered\n");
+		
+		return NULL;
 	}
 
-	return temp;
+	// return tempString;
 
 }
 
@@ -76,7 +81,7 @@ void displayStack(stack *s) {
 	int i;
 	sNode* temp;
 
-	if (s->nCount == 0)
+	if (stackEmpty(s))
 	{
 		printf ("Stack is empty\n");
 	}
@@ -87,7 +92,7 @@ void displayStack(stack *s) {
 
 		for (i = 0; i < s->nCount; i++)
 		{
-			printf ("%c ", *(temp->data));
+			printf ("%s ", temp->data);
 			temp = temp->pLink;
 		}
 		printf ("\n");
