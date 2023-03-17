@@ -3,6 +3,7 @@ YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 *****************************************************/
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "node.h"
 #include "queue.h"
@@ -11,25 +12,28 @@ YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 
 int main() {
 
-	char string[10] = "hi";
+	// char string[10] = "hi";
 	
-	// queue q = *(createQueue(10));
-	// queue* qPtr = &q;
-	// queue** qPtrPtr = &qPtr;
+	// // queue q = *(createQueue(10));
+	// // queue* qPtr = &q;
+	// // queue** qPtrPtr = &qPtr;
 
 	stack s = *(createStack(10));
-	stack* sPtr = &s;
-	stack** sPtrPtr = &sPtr;
+	// stack* sPtr = &s;
+	// stack** sPtrPtr = &sPtr;
 
-	printf("helo\n");
-	// printf("%d", queueFull(&q));
-	// enqueue(qPtrPtr, "1");
 	// printf("helo\n");
-	// printf("%d", queueEmpty(&q));
+	// // printf("%d", queueFull(&q));
+	// // enqueue(qPtrPtr, "1");
+	// // printf("helo\n");
+	// // printf("%d", queueEmpty(&q));
 
-	printf("%d", stackFull(sPtr));
-	push(sPtrPtr, string);
-	printf("helo\n");
+	printf("%p\n", s.pTop);
+
+	// printf("%d\n", stackEmpty(&s));
+	// push(sPtrPtr, string);
+	// printf("%d\n", stackEmpty(&s));
+	// printf("helo\n");
 	
 	return 0;
 }
