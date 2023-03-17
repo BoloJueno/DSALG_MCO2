@@ -40,19 +40,29 @@ int stackFull(stack *s)
 
 void push(stack **s, char *data) 
 {
-	// (*s)->pTop++;
-	// printf("world\n");
-	sNode *temp = (*s)->pTop;
-	if ((*s)->nCount < (*s)->n) {//overflow checker
-		printf("%p", (*temp).data);
-		printf("world\n");
-		// strcpy((*temp)->data, data);
-		printf("world\n");
-		(*s)->pTop->pLink++;
-		(*s)->nCount++;
-	} else {
-		printf("Stack overflow encountered\n");
-	}
+	// // (*s)->pTop++;
+	// // printf("world\n");
+	// sNode *temp = (*s)->pTop;
+	// if ((*s)->nCount < (*s)->n) {//overflow checker
+	// 	printf("%p", (*temp).data);
+	// 	printf("world\n");
+	// 	// strcpy((*temp)->data, data);
+	// 	printf("world\n");
+	// 	(*s)->pTop->pLink++;
+	// 	(*s)->nCount++;
+	// } else {
+	// 	printf("Stack overflow encountered\n");
+	// }
+
+	if (!stackFull(*s)) {//overflow checker
+			sNode *temp = (sNode *) malloc(sizeof(sNode));
+			temp->data = data;
+			temp->pLink = (*s)->pTop;
+			(*s)->pTop = temp;
+			(*s)->nCount++;
+		} else {
+			printf("Stack overflow encountered\n");
+		}
 	
 }
 
