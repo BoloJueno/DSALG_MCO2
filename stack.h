@@ -10,12 +10,11 @@ typedef struct {
 
 stack* createStack(int n) 
 {
-	stack temp;
+	stack *s = (stack *) malloc(sizeof(stack));
 
-	temp.n = n;
-	temp.nCount = 0;
-
-	stack *s = &temp;
+	s->n = n;
+	s->nCount = 0;
+	s->pTop = NULL;
 
 	return s;
 }
