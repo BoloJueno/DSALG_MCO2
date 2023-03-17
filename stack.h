@@ -54,16 +54,17 @@ void push(stack **s, char *data)
 
 char* pop(stack **s) 
 {
-	char *temp = (*s)->pTop->data;
+	sNode *temp = (sNode *) malloc(sizeof(sNode));
+	char *tempString = temp->data;
 
-	if ((*s)->nCount == 0) {//underflow checker
-		(*s)->pTop->pLink--;
+	if (!stackEmpty(*s)) {//underflow checker
+		(*s)->pTop--;
 		(*s)->nCount--;
 	} else {
 		printf("Stack underflow encountered\n");
 	}
 
-	return temp;
+	return tempString;
 
 }
 
