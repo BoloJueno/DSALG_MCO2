@@ -54,6 +54,9 @@ void infixToPostfix(char *infix, char *postfix) {
 						}//for
 					}//for
 
+					// printf("\n\ntoken: %s - %d\n", tokensArr[i], tokOpLevel);
+					// printf("top: %s - %d\n\n", top(s), topOpLevel);
+
 					if (tokOpLevel > topOpLevel) {
 						push(&s, tokensArr[i]);
 						b = 0;
