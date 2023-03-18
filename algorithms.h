@@ -62,7 +62,11 @@ void infixToPostfix(char *infix, char *postfix) {
 						b = 0;
 					} else {
 						printf("%s ", pop(&s));
-						
+
+						if (stackEmpty(s)) {
+							push(&s, tokensArr[i]);
+							b = 0;
+						}
 					}//if
 				}//while
 				
