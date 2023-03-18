@@ -19,11 +19,13 @@ int main() {
 	// stack** sPtrPtr = &sPtr;
 
 	fgets(infix, 100, stdin);
+	infix[strlen(infix) - 1] = '\0';
 
 	while (strcmp(infix, "QUIT") != 0) {
 		infixToPostfix(infix, postfix);
 
 		fgets(infix, 100, stdin);
+		infix[strlen(infix) - 1] = '\0';
 	}
 	
 	return 0;
