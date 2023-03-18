@@ -18,10 +18,12 @@ int main() {
 	// stack* sPtr = &s;
 	// stack** sPtrPtr = &sPtr;
 
-	scanf("%s", infix);
+	fgets(infix, 100, stdin);
 
 	while (strcmp(infix, "QUIT\n") != 0) {
 		infixToPostfix(infix, postfix);
+
+		fgets(infix, 100, stdin);
 	}
 	
 	return 0;
