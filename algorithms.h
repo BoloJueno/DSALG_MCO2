@@ -4,7 +4,7 @@ YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 
 void infixToPostfix(char *infix, char *postfix) {
 
-	int i, j, x, stackSize = 0, tokOpLevel, topOpLevel, b = 1;
+	int i, j, x, stackSize = 0, tokOpLevel, topOpLevel, b;
 	char tokensArr[100][10];
 	char *token = strtok(infix, " ");
 	stack *s = (stack *) malloc(sizeof(stack));
@@ -37,6 +37,8 @@ void infixToPostfix(char *infix, char *postfix) {
 				//stack is empty or operator is a ( or top is a (
 				push(&s, tokensArr[i]);
 			} else {
+				b = 1;
+				
 				while (b) {//keeps looping until token is pushed
 					for (j = 0; j < 6; j++) {
 						for (x = 0; x < 4; x++) {
