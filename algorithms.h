@@ -21,6 +21,9 @@ void infixToPostfix(char *infix, char *postfix) {
 	for (i = 0; token != NULL; i++) {
 		strcpy(tokensArr[i], token);
 
+	while (!(stackEmpty(s))) {
+		printf("%s ", pop(&s));
+	}
 }
 
 int evaluatePostfix(char *postfix) {
