@@ -37,7 +37,7 @@ void infixToPostfix(char *infix, char *postfix) {
 				//stack is empty or operator is a ( or top is a (
 				push(&s, tokensArr[i]);
 			} else {
-				while (b) {
+				while (b) {//keeps looping until token is pushed
 					for (j = 0; j < 6; j++) {
 						for (x = 0; x < 4; x++) {
 							//gets level of precedence of token
@@ -57,6 +57,7 @@ void infixToPostfix(char *infix, char *postfix) {
 						b = 0;
 					} else {
 						printf("%s ", pop(&s));
+						
 					}//if
 				}//while
 				
