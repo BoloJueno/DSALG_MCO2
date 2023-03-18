@@ -20,7 +20,7 @@ int main() {
 
 	scanf("%s", infix);
 
-	while (strcmp(infix, "QUIT") != 0) {
+	while (strcmp(infix, "QUIT\n") != 0) {
 		infixToPostfix(infix, postfix);
 	}
 	
