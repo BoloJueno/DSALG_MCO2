@@ -8,38 +8,25 @@ YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 #include "node.h"
 #include "queue.h"
 #include "stack.h"
-// #include "algorithms.h"
+#include "algorithms.h"
 
 int main() {
 
-	char string[10] = "hi";
-	
-	// // queue q = *(createQueue(10));
-	// // queue* qPtr = &q;
-	// // queue** qPtrPtr = &qPtr;
+	char infix[100], postfix[100];
 
-	stack s = *(createStack(2));
-	stack* sPtr = &s;
-	stack** sPtrPtr = &sPtr;
+	// stack s = *(createStack(2));
+	// stack* sPtr = &s;
+	// stack** sPtrPtr = &sPtr;
 
-	// printf("helo\n");
-	// // printf("%d", queueFull(&q));
-	// // enqueue(qPtrPtr, "1");
-	// // printf("helo\n");
-	// // printf("%d", queueEmpty(&q));
+	fgets(infix, 100, stdin);
+	infix[strlen(infix) - 1] = '\0';
 
-	// printf("%p\n", s.pTop);
+	while (strcmp(infix, "QUIT") != 0) {
+		infixToPostfix(infix, postfix);
 
-	printf("%d\n", stackFull(&s));
-	push(sPtrPtr, string);
-	push(sPtrPtr, "string");
-	displayStack(&s);
-	printf("%d\n", stackFull(&s));
-	printf("%s\n", pop(sPtrPtr));
-	printf("%s\n", top(&s));
-	displayStack(&s);
-	printf("%d\n", stackFull(&s));
-	printf("helo\n");
+		fgets(infix, 100, stdin);
+		infix[strlen(infix) - 1] = '\0';
+	}
 	
 	return 0;
 }
