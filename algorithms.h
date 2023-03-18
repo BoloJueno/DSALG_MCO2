@@ -21,6 +21,14 @@ void infixToPostfix(char *infix, char *postfix) {
 	for (i = 0; token != NULL; i++) {
 		strcpy(tokensArr[i], token);
 
+		if (!(*token >= 48 && *token <= 57)) {
+			stackSize++;
+		}
+		token = strtok(NULL, " ");
+	}
+
+	s = createStack(stackSize);
+
 	for(i = 0; strcmp(tokensArr[i], "\0"); i++) {
 		if (tokensArr[i][0] >= 48 && tokensArr[i][0] <= 57) { //if token is operand
 			printf("%s ", tokensArr[i]);
