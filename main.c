@@ -20,7 +20,7 @@ int main() {
 
 	fgets(infix, 100, stdin);
 
-	while (strcmp(infix, "QUIT\n") != 0) {
+	while (strcmp(infix, "QUIT") != 0) {
 		infixToPostfix(infix, postfix);
 
 		fgets(infix, 100, stdin);
