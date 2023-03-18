@@ -24,6 +24,9 @@ void infixToPostfix(char *infix, char *postfix) {
 	while (!(stackEmpty(s))) {
 		printf("%s ", pop(&s));
 	}
+
+	printf("\n\n");
+
 }
 
 int evaluatePostfix(char *postfix) {
