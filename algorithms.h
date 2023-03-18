@@ -52,7 +52,7 @@ void infixToPostfix(char *infix, char *postfix) {
 						}//for
 					}//for
 
-					if (tokOpLevel >= topOpLevel) {
+					if (tokOpLevel > topOpLevel) {
 						push(&s, tokensArr[i]);
 						b = 0;
 					} else {
