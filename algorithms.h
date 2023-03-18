@@ -7,5 +7,7 @@ void infixToPostfix(char *infix, char *postfix) {
 }
 
 int evaluatePostfix(char *postfix) {
-	// Your code here
+	
+	return 0;
+
 }
