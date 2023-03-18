@@ -21,6 +21,41 @@ void infixToPostfix(char *infix, char *postfix) {
 	for (i = 0; token != NULL; i++) {
 		strcpy(tokensArr[i], token);
 
+	for(i = 0; strcmp(tokensArr[i], "\0"); i++) {
+		if (tokensArr[i][0] >= 48 && tokensArr[i][0] <= 57) { //if token is operand
+			printf("%s ", tokensArr[i]);
+		} else { //if operator
+			if (stackEmpty(s) || tokensArr[i][0] == '(' || *(top(s)) == '(') { 
+				//stack is empty or operator is a ( or top is a (
+				push(&s, tokensArr[i]);
+			} else {
+				while (b) {
+					for (j = 0; j < 6; j++) {
+						for (x = 0; x < 4; x++) {
+							//gets level of precedence of token
+							if (strcmp(tokensArr[i], operatorOrder[j][x]) == 0) {
+								tokOpLevel = j;
+							}
+
+							//gets level of precedence of top
+							if (strcmp(top(s), operatorOrder[j][x]) == 0) {
+								topOpLevel = j;
+							}
+						}//for
+					}//for
+
+					if (tokOpLevel >= topOpLevel) {
+						push(&s, tokensArr[i]);
+						b = 0;
+					} else {
+						printf("%s ", pop(&s));
+					}//if
+				}//while
+				
+			} //if	
+			
+		} //if
+	}//for
 	while (!(stackEmpty(s))) {
 		printf("%s ", pop(&s));
 	}
