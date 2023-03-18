@@ -56,6 +56,7 @@ void infixToPostfix(char *infix, char *postfix) {
 			
 		} //if
 	}//for
+
 	while (!(stackEmpty(s))) {
 		printf("%s ", pop(&s));
 	}
