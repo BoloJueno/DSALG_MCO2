@@ -48,7 +48,7 @@ void infixToPostfix(char *infix, char *postfix) {
 				b = 1;
 				
 				while (b) {//keeps looping until token is pushed
-					for (j = 0; j < 6; j++) {
+					for (j = 0; j < 8; j++) {
 						for (x = 0; x < 4; x++) {
 							//gets level of precedence of token
 							if (strcmp(tokensArr[i], operatorOrder[j][x]) == 0) {
@@ -64,6 +64,7 @@ void infixToPostfix(char *infix, char *postfix) {
 
 					// printf("\n\ntoken: %s - %d\n", tokensArr[i], tokOpLevel);
 					// printf("top: %s - %d\n\n", top(s), topOpLevel);
+					// displayStack(s);
 
 					if (tokOpLevel > topOpLevel) {
 						push(&s, tokensArr[i]);
