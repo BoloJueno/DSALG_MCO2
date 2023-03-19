@@ -2,6 +2,8 @@
 YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 *****************************************************/
 
+#include <ctype.h>
+
 void infixToPostfix(char *infix, char *postfix) {
 
 	int i, j, x, stackSize = 0, tokOpLevel, topOpLevel, b;
@@ -94,6 +96,47 @@ void infixToPostfix(char *infix, char *postfix) {
 
 int evaluatePostfix(char *postfix) {
 	
-	return 0;
+	stack s;
 
+	s.pTop = -1;
+	int i;
+	int op1, op2, ans;
+
+	for (i = 0; postfix[i] != '\0'; i++)
+	{
+		if (isdigit(postfix[i]))
+		{
+			push(&s, postfix[i] - '0');
+		}
+		else
+		{
+			op2 = pop(&s);
+			op1 = pop(&s);
+
+			switch (postfix[i])
+			{
+				case '+':
+					ans = op1 + op2;
+					break;
+				case '-':
+					ans = op1 - op2;
+					break;
+				case '*':
+					ans = op1 * op2;
+					break;
+				case '/':
+					ans = op1 / op2;
+					break;
+				case '%':
+					ans = op1 % op2;
+					break;
+				default:
+					printf ("Invalid operator\n");
+					break;
+			}
+			push(&s, ans);
+		}
+	}
+
+	return pop(&s);
 }
