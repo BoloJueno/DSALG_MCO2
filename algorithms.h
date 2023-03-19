@@ -38,6 +38,12 @@ void infixToPostfix(char *infix, char *postfix) {
 			if (stackEmpty(s) || tokensArr[i][0] == '(' || *(top(s)) == '(') { 
 				//stack is empty or operator is a ( or top is a (
 				push(&s, tokensArr[i]);
+			} else if (strcmp(tokensArr[i], ")") == 0) {//if token is a )
+				while (strcmp(top(s), "(") != 0) {
+					printf("%s ", pop(&s));
+				}
+
+				pop(&s);//pops (
 			} else {
 				b = 1;
 				
