@@ -9,13 +9,15 @@ void infixToPostfix(char *infix, char *postfix) {
 	char *token = strtok(infix, " ");
 	stack *s = (stack *) malloc(sizeof(stack));
 
-	char operatorOrder[6][4][3] = {
+	char operatorOrder[8][4][3] = {
+		{"("},
 		{"||"},
 		{"&&"},
 		{"==", "!="},
 		{"<", "<=", ">", ">="},
 		{"+", "-"},
-		{"*", "/", "%"}
+		{"*", "/", "%"},
+		{"!"}
 	};
 	
 	for (i = 0; token != NULL; i++) {
