@@ -9,13 +9,15 @@ void infixToPostfix(char *infix, char *postfix) {
 	char *token = strtok(infix, " ");
 	stack *s = (stack *) malloc(sizeof(stack));
 
-	char operatorOrder[6][4][3] = {
+	char operatorOrder[8][4][3] = {
+		{"("},
 		{"||"},
 		{"&&"},
 		{"==", "!="},
 		{"<", "<=", ">", ">="},
 		{"+", "-"},
-		{"*", "/", "%"}
+		{"*", "/", "%"},
+		{"!"}
 	};
 	
 	for (i = 0; token != NULL; i++) {
@@ -36,11 +38,17 @@ void infixToPostfix(char *infix, char *postfix) {
 			if (stackEmpty(s) || tokensArr[i][0] == '(' || *(top(s)) == '(') { 
 				//stack is empty or operator is a ( or top is a (
 				push(&s, tokensArr[i]);
+			} else if (strcmp(tokensArr[i], ")") == 0) {//if token is a )
+				while (strcmp(top(s), "(") != 0) {
+					printf("%s ", pop(&s));
+				}
+
+				pop(&s);//pops (
 			} else {
 				b = 1;
 				
 				while (b) {//keeps looping until token is pushed
-					for (j = 0; j < 6; j++) {
+					for (j = 0; j < 8; j++) {
 						for (x = 0; x < 4; x++) {
 							//gets level of precedence of token
 							if (strcmp(tokensArr[i], operatorOrder[j][x]) == 0) {
@@ -56,6 +64,7 @@ void infixToPostfix(char *infix, char *postfix) {
 
 					// printf("\n\ntoken: %s - %d\n", tokensArr[i], tokOpLevel);
 					// printf("top: %s - %d\n\n", top(s), topOpLevel);
+					// displayStack(s);
 
 					if (tokOpLevel > topOpLevel) {
 						push(&s, tokensArr[i]);

@@ -83,12 +83,12 @@ void displayStack(stack *s) {
 
 	if (stackEmpty(s))
 	{
-		printf ("Stack is empty\n");
+		printf ("\nStack is empty\n");
 	}
 	else
 	{
 		temp = s->pTop;
-		printf ("Stack: ");
+		printf ("\nStack: ");
 
 		for (i = 0; i < s->nCount; i++)
 		{
