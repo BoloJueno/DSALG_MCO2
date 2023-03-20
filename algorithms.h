@@ -9,7 +9,7 @@ void infixToPostfix(char *infix, char *postfix) {
 	int i, j, x, stackSize = 0, tokOpLevel, topOpLevel, b;
 	char tokensArr[100][10];
 	char *token = strtok(infix, " ");
-	stack *s = (stack *) malloc(sizeof(stack));
+	stack *s;
 
 	char operatorOrder[8][4][3] = {
 		{"("},
@@ -45,6 +45,7 @@ void infixToPostfix(char *infix, char *postfix) {
 				printf("%s ", tokensArr[i] + 1);
 			} else if (stackEmpty(s) || tokensArr[i][0] == '(' || *(top(s)) == '(') { 
 				//stack is empty or operator is a ( or top is a (
+				// printf("%s ", tokensArr[i]);
 				push(&s, tokensArr[i]);
 			} else if (strcmp(tokensArr[i], ")") == 0) {//if token is a )
 				while (strcmp(top(s), "(") != 0) {
@@ -55,6 +56,7 @@ void infixToPostfix(char *infix, char *postfix) {
 
 				pop(&s);//pops (
 			} else {
+				// printf("%s ", tokensArr[i]);
 				b = 1;
 				
 				while (b) {//keeps looping until token is pushed
@@ -102,7 +104,6 @@ void infixToPostfix(char *infix, char *postfix) {
 		strcat(postfix, " ");
 	}
 
-	printf("\n\n");
 	// printf("\nworld\n");
 	// displayStack(s);
 
