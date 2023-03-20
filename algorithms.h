@@ -40,7 +40,9 @@ void infixToPostfix(char *infix, char *postfix) {
 		} else { //if operator
 			if ((tokensArr[i][0] == '-') && (tokensArr[i][1] >= 48 && tokensArr[i][1] <= 57)) {
 				//do nothing when token is a - and next token is an operator (negative numbers)
-				printf("%s ", tokensArr[i] + 1);
+				// printf("%s ", tokensArr[i] + 1);
+				strcat(postfix, tokensArr[i] + 1);
+				strcat(postfix, " ");
 			} else if (stackEmpty(s) || tokensArr[i][0] == '(' || *(top(s)) == '(') { 
 				//stack is empty or operator is a ( or top is a (
 				// printf("%s ", tokensArr[i]);
