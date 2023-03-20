@@ -100,6 +100,12 @@ void infixToPostfix(char *infix, char *postfix) {
 	}
 
 	printf("\n\n");
+	// printf("\nworld\n");
+	// displayStack(s);
+
+	for (i = 0; i < 100; i++) {
+		strcpy(tokensArr[i], "\0");
+	}
 
 }
 
