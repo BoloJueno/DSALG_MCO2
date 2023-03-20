@@ -123,11 +123,12 @@ int evaluatePostfix(char *postfix) {
 	char tokensArr[200][200];
 	char *token = strtok(postfix, " ");
 
-	for (i = 0; postfix[i] != '\0'; i++)
-	{
-		if (isdigit(postfix[i]))
-		{
-			push(&s, postfix[i] - '0');
+	for (i = 0; token != NULL; i++) {
+		
+		strcpy(tokensArr[i], token);
+
+		if (isdigit(*token)) {
+			stackSize++;
 		}
 
 		token = strtok(NULL, " ");
