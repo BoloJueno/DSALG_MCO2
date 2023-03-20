@@ -24,7 +24,7 @@ int main() {
 	while (strcmp(infix, "QUIT") != 0) {
 		infixToPostfix(infix, postfix);
 		printf("%s\n", postfix);
-		// evaluatePostfix(postfix);
+		evaluatePostfix(postfix);
 
 		strcpy(postfix, "");
 
