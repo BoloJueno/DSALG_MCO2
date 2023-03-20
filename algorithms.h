@@ -5,7 +5,7 @@ YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 void infixToPostfix(char *infix, char *postfix) {
 
 	int i, j, x, stackSize = 0, tokOpLevel, topOpLevel, b;
-	char tokensArr[100][10];
+	char tokensArr[200][200];
 	char *token = strtok(infix, " ");
 	stack *s;
 
