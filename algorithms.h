@@ -35,14 +35,19 @@ void infixToPostfix(char *infix, char *postfix) {
 
 	for(i = 0; strcmp(tokensArr[i], "\0") != 0; i++) {
 		if (tokensArr[i][0] >= 48 && tokensArr[i][0] <= 57) { //if token is operand
-			printf("%s ", tokensArr[i]);
+			// printf("%s ", tokensArr[i]);
+			// printf("%s ", );
+			strcat(postfix, tokensArr[i]);
+			strcat(postfix, " ");
 		} else { //if operator
 			if (stackEmpty(s) || tokensArr[i][0] == '(' || *(top(s)) == '(') { 
 				//stack is empty or operator is a ( or top is a (
 				push(&s, tokensArr[i]);
 			} else if (strcmp(tokensArr[i], ")") == 0) {//if token is a )
 				while (strcmp(top(s), "(") != 0) {
-					printf("%s ", pop(&s));
+					// printf("%s ", pop(&s));
+					strcat(postfix, pop(&s));
+					strcat(postfix, " ");
 				}
 
 				pop(&s);//pops (
@@ -72,7 +77,9 @@ void infixToPostfix(char *infix, char *postfix) {
 						push(&s, tokensArr[i]);
 						b = 0;
 					} else {
-						printf("%s ", pop(&s));
+						// printf("%s ", pop(&s));
+						strcat(postfix, pop(&s));
+						strcat(postfix, " ");
 
 						if (stackEmpty(s)) {
 							push(&s, tokensArr[i]);
@@ -87,7 +94,9 @@ void infixToPostfix(char *infix, char *postfix) {
 	}//for
 
 	while (!(stackEmpty(s))) {
-		printf("%s ", pop(&s));
+		// printf("%s ", pop(&s));
+		strcat(postfix, pop(&s));
+		strcat(postfix, " ");
 	}
 
 	printf("\n\n");
