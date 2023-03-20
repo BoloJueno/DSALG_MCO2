@@ -129,23 +129,30 @@ int evaluatePostfix(char *postfix) {
 		{
 			push(&s, postfix[i] - '0');
 		}
-		else
-		{
-			op2 = pop(&s);
-			op1 = pop(&s);
 
-			switch (postfix[i])
-			{
-				case '+':
-					ans = op1 + op2;
-					break;
-				case '-':
-					ans = op1 - op2;
-					break;
-				case '*':
-					ans = op1 * op2;
-					break;
-				case '/':
+		token = strtok(NULL, " ");
+	}
+
+	s = createStack(stackSize);
+
+	for (i = 0; strcmp(tokensArr[i], "\0") != 0; i++)
+	{
+		// printf("start");
+		// displayStack(s);
+		// strcpy(buffer, "\0");	
+		
+		if (tokensArr[i][0] >= 48 && tokensArr[i][0] <= 57) {	
+			push(&s, tokensArr[i]);
+		} else { 
+			if (strcmp(tokensArr[i], "!") == 0) {
+				op2 = atoi(pop(&s));
+			} else {
+				// displayStack(s);
+				op2 = atoi(pop(&s));
+				op1 = atoi(pop(&s));
+				// displayStack(s);
+			}			
+
 			if (strcmp(tokensArr[i], "+") == 0) {//arithmetic operators
 				ans = op1 + op2;
 			} else if (strcmp(tokensArr[i], "-") == 0) {
