@@ -2,8 +2,6 @@
 YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 *****************************************************/
 
-#include <ctype.h>
-
 void infixToPostfix(char *infix, char *postfix) {
 
 	int i, j, x, stackSize = 0, tokOpLevel, topOpLevel, b;
