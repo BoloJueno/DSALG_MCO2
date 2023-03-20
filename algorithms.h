@@ -146,14 +146,40 @@ int evaluatePostfix(char *postfix) {
 					ans = op1 * op2;
 					break;
 				case '/':
+			if (strcmp(tokensArr[i], "+") == 0) {//arithmetic operators
+				ans = op1 + op2;
+			} else if (strcmp(tokensArr[i], "-") == 0) {
+				ans = op1 - op2;
+			} else if (strcmp(tokensArr[i], "*") == 0) {
+				ans = op1 * op2;
+			} else if (strcmp(tokensArr[i], "/") == 0) {
+				if (op2 != 0) {//division by 0
 					ans = op1 / op2;
-					break;
-				case '%':
-					ans = op1 % op2;
-					break;
-				default:
-					printf ("Invalid operator\n");
-					break;
+				} else {
+					strcpy(postfix, "Division by zero error!");
+					return 0;
+				}				
+			} else if (strcmp(tokensArr[i], "%") == 0) {
+				ans = op1 % op2;
+			} else if (strcmp(tokensArr[i], "!") == 0) {//not operator
+				ans = !op2;
+				// printf("!%d = %d\n", op2, ans);
+			} else if (strcmp(tokensArr[i], "<") == 0) {//relational operators
+				ans = op1 < op2;
+			} else if (strcmp(tokensArr[i], "<=") == 0) {
+				ans = op1 <= op2;
+			} else if (strcmp(tokensArr[i], ">") == 0) {
+				ans = op1 > op2;
+			} else if (strcmp(tokensArr[i], ">=") == 0) {
+				ans = op1 >= op2;
+			} else if (strcmp(tokensArr[i], "==") == 0) {
+				ans = op1 == op2;
+			} else if (strcmp(tokensArr[i], "!=") == 0) {
+				ans = op1 != op2;
+			} else if (strcmp(tokensArr[i], "&&") == 0) {//logical operators
+				ans = op1 && op2;
+			} else if (strcmp(tokensArr[i], "||") == 0) {
+				ans = op1 || op2;
 			}
 			push(&s, ans);
 		}
