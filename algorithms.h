@@ -157,5 +157,5 @@ int evaluatePostfix(char *postfix) {
 		}
 	}
 
-	return pop(&s);
+	return 1;
 }
