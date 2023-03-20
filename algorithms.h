@@ -189,6 +189,9 @@ int evaluatePostfix(char *postfix) {
 	}//for
 
 	strcpy(postfix, pop(&s));
+
+	for (i = 0; i < 200; i++) {
+		strcpy(tokensArr[i], "\0");
 	}
 
 	return 1;
