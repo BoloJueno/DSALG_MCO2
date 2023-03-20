@@ -12,7 +12,7 @@ YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 
 int main() {
 
-	char infix[100], postfix[100];
+	char infix[100], postfix[100] = "";
 
 	// stack s = *(createStack(2));
 	// stack* sPtr = &s;
@@ -23,7 +23,14 @@ int main() {
 
 	while (strcmp(infix, "QUIT") != 0) {
 		infixToPostfix(infix, postfix);
+		printf("%s\n", postfix);
+		// evaluatePostfix(postfix);
 
+		strcpy(postfix, "");
+
+		printf("\n\n");
+
+		strcpy(infix, "");
 		fgets(infix, 100, stdin);
 		infix[strlen(infix) - 1] = '\0';
 	}
