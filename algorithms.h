@@ -188,6 +188,7 @@ int evaluatePostfix(char *postfix) {
 		}//if else
 	}//for
 
+	strcpy(postfix, pop(&s));
 	}
 
 	return 1;
