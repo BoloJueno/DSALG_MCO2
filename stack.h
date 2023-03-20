@@ -53,7 +53,7 @@ void push(stack **s, char *data)
 			(*s)->pTop = temp;
 			(*s)->nCount++;
 		} else {
-			printf("Stack overflow encountered\n");
+			// printf("Stack overflow encountered\n");
 		}
 	
 }
@@ -73,7 +73,7 @@ char* pop(stack **s)
 		return tempString;
 
 	} else {
-		printf("Stack underflow encountered\n");
+		// printf("Stack underflow encountered\n");
 		
 		return NULL;
 	}
