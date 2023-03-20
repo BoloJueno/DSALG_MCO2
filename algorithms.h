@@ -181,8 +181,13 @@ int evaluatePostfix(char *postfix) {
 			} else if (strcmp(tokensArr[i], "||") == 0) {
 				ans = op1 || op2;
 			}
-			push(&s, ans);
-		}
+
+			itoa(ans, buffer, 10);
+			push(&s, buffer);
+
+		}//if else
+	}//for
+
 	}
 
 	return 1;
