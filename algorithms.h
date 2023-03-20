@@ -115,11 +115,13 @@ void infixToPostfix(char *infix, char *postfix) {
 
 int evaluatePostfix(char *postfix) {
 	
-	stack s;
+	stack *s;
 
-	s.pTop = -1;
-	int i;
+	int i, stackSize;
 	int op1, op2, ans;
+	char buffer[200];
+	char tokensArr[200][200];
+	char *token = strtok(postfix, " ");
 
 	for (i = 0; postfix[i] != '\0'; i++)
 	{
