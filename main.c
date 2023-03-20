@@ -26,10 +26,11 @@ int main() {
 		infixToPostfix(infix, postfix);
 		printf("%s\n", postfix);
 		evaluatePostfix(postfix);
+		printf("%s\n", postfix);		
 
 		strcpy(postfix, "");
 
-		printf("\n\n");
+		printf("\n");
 
 		strcpy(infix, "");
 		fgets(infix, 100, stdin);
